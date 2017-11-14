@@ -61,8 +61,9 @@ def discrete_cross_entr(pX, pY):
 
     avec = pX > 0;
     bvec = pY > 0;
+    
 
-    H= np.sum(-pX[avec] * np.log2(pY[bvec]));
+    H= np.sum(np.nan_to_num(-pX[avec] * np.log2(pY[bvec])));
     #return np.sum(np.nan_to_num(-pX * np.log(pY)))
 
     return H
